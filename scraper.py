@@ -44,7 +44,16 @@ highest_date = None
 
 # Filter shorts
 for item in video_response["items"]:
-    duration = parse_duration(item["contentDetails"]["duration"]).total_seconds()
+    # duration = parse_duration(item["contentDetails"]["duration"]).total_seconds()
+    content = item.get("contentDetails", {})
+    duration_str = content.get("duration")
+
+    if duration_str:
+        duration = parse_duration(duration_str).total_seconds()
+    else:
+        print(f"Skipping video ID {item.get('id')} — no duration info.")
+        continue  # or set duration = 0 or handle another way
+
     if duration <= 60: # if its a short
         videos_found += 1
         title = item["snippet"]["title"]
