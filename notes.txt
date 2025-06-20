@@ -1,0 +1,9 @@
+Things I can get
+
+video ID	item["id"]["videoId"]	Unique video identifier
+title	item["snippet"]["title"]	Video title
+description	item["snippet"]["description"]	Video description text
+publishedAt	item["snippet"]["publishedAt"]	ISO datetime when uploaded
+channelTitle	item["snippet"]["channelTitle"]	Channel’s public name
+thumbnails	item["snippet"]["thumbnails"]	Dictionary of thumbnail images
+thumbnail (medium)	item["snippet"]["thumbnails"]["medium"]["url"]	URL of medium-size thumbnail
